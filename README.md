@@ -632,7 +632,7 @@ public extension Project {
 
 Note that we add a new `enum`, `Dependency` that we can use to model dependencies, which can now be of two types, `module` or `package`. The enum exposes a `targetDependency` property to return the value that targets need when defining their dependencies.
 
-Now we need to run `tuist fetch`, which uses the Swift Package Manager to resolve the dependencies.
+Now we need to run `tuist install`, which uses the Swift Package Manager to resolve the dependencies.
 After they've been fetched, you can run `tuist generate` to generate the project and open it.
 
 Then let's edit the `TuistApp.swift` to run the server when the view appears:
