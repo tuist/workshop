@@ -242,26 +242,26 @@ And add the new target to the list:
 ```diff
 import ProjectDescription
 
-let project = Project(
-    name: "TuistApp",
-    targets: [
-        .target(
-            name: "TuistApp",
+let project = Project(name: "TuistApp", targets: [
+    .target(name: "TuistApp",
             destinations: .iOS,
             product: .app,
             bundleId: "dev.tuist.TuistApp",
             sources: [
                 "Sources/TuistApp/**/*.swift"
-            ]),
-+        .target(
-+            name: "TuistAppKit",
-+            destinations: .iOS,
-+            product: .framework,
-+            bundleId: "dev.tuist.TuistAppKit",
-+            sources: [
-+                "Sources/TuistAppKit/**/*.swift"
+            ],
++            dependencies: [
++                .target(name: "TuistAppKit")
 +            ]),
-    ])
++    .target(
++        name: "TuistAppKit",
++        destinations: .iOS,
++        product: .framework,
++        bundleId: "dev.tuist.TuistAppKit",
++        sources: [
++            "Sources/TuistAppKit/**/*.swift"
++        ])
+])
 ```
 
 We can then create the following source file:
